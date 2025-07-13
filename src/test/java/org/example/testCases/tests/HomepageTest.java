@@ -9,12 +9,11 @@ public class HomepageTest extends BaseTest {
     public void validateRegistrationAndDeletion(){
         home.goToHomepage();
         home.goToSignupLogin();
-        loginSignup.fillDetailsSignup("Abir", "testarbir@gmail.com");
+        loginSignup.fillDetailsSignup("Abir", "testeattrbir@gmail.com");
         loginSignup.fillAccountInformationAndRegister();
-
-
-
-
-
+        loginSignup.verifyAccountcreated();
+        loginSignup.deleteAccount();
     }
+
+
 }

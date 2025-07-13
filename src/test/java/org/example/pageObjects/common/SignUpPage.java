@@ -71,4 +71,19 @@ public class SignUpPage extends BaseObject {
 
     @FindBy(xpath = "//button[@data-qa='create-account']")
     public WebElement createAccoutButton;
+
+    @FindBy(xpath = "//h2[@data-qa='account-created']/b")
+    public WebElement accountCreatesuccesmsg;
+
+    @FindBy(xpath = "//a[@data-qa='continue-button']")
+    public WebElement continueButton;
+
+    @FindBy(css = ".fa-user+b")
+    public WebElement loggedInASText;
+
+    @FindBy(partialLinkText = "Delete Account")
+    public WebElement deleteAccoutLink;
+
+    @FindBy(xpath = "//h2[@data-qa='account-deleted']/b")
+    public WebElement accountDeletedmsg;
 }

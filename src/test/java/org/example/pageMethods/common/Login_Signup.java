@@ -2,6 +2,7 @@ package org.example.pageMethods.common;
 
 import org.example.pageMethods.BaseMethod;
 import org.example.pageObjects.common.SignUpPage;
+import org.testng.Assert;
 
 public class Login_Signup extends BaseMethod {
 
@@ -36,11 +37,24 @@ public class Login_Signup extends BaseMethod {
         signUpPage.zipcodeField.sendKeys("204384");
         signUpPage.mobileNumberField.sendKeys("7395739535");
         signUpPage.createAccoutButton.click();
+    }
 
+    public void verifyAccountcreated(){
+        waitTillElementVisible(signUpPage.accountCreatesuccesmsg);
+        System.out.println(signUpPage.accountCreatesuccesmsg.getText());
+        signUpPage.continueButton.click();
+        waitTillElementVisible(signUpPage.loggedInASText);
+        String expectedTitle = "Automation Exercise";
+        String actualTitle = driver.getTitle();
+        Assert.assertEquals(actualTitle, expectedTitle);
+        String user_name = "Abir";
+        Assert.assertEquals(signUpPage.loggedInASText.getText(), user_name);
+    }
 
-
-
-
-
+    public void deleteAccount(){
+        signUpPage.deleteAccoutLink.click();
+        waitTillElementVisible(signUpPage.accountDeletedmsg);
+        System.out.println(signUpPage.accountDeletedmsg.getText());
+        signUpPage.continueButton.click();
     }
 }
