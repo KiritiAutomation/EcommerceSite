@@ -8,10 +8,10 @@ public class Login_Signup extends BaseMethod {
 
     SignUpPage signUpPage = new SignUpPage();
 
-    public void fillDetailsSignup(String name, String email){
+    public void fillDetailsSignup(){
         waitTillElementVisible(signUpPage.signUpHeading);
-        signUpPage.nameField.sendKeys(name);
-        signUpPage.emailField.sendKeys(email);
+        signUpPage.nameField.sendKeys(globalProperties.getProperty("signupName"));
+        signUpPage.emailField.sendKeys(globalProperties.getProperty("signupEmail"));
         signUpPage.signUpButton.click();
     }
 
@@ -19,23 +19,24 @@ public class Login_Signup extends BaseMethod {
         waitTillElementVisible(signUpPage.enterAccountInfoHeading);
         signUpPage.genderMr.click();
         scrollTillelement(signUpPage.passwordField);
-        signUpPage.passwordField.sendKeys("Krishna");
-        selectByValueText(signUpPage.daySelect, "5");
-        selectByValueText(signUpPage.yearSelect, "2000");
+        signUpPage.passwordField.sendKeys(globalProperties.getProperty("signuppassword"));
+        String[] dob = globalProperties.getProperty("dateOfBirth").split("-");
+        selectByValueText(signUpPage.daySelect, dob[0]);
+        selectByValueText(signUpPage.monthSelect, dob[1]);
+        selectByValueText(signUpPage.yearSelect, dob[2]);
         signUpPage.newsletterCheckBox.click();
         waitTillElementVisible(signUpPage.addressInformationHeading);
         scrollTillelement(signUpPage.firstNameField);
-        signUpPage.firstNameField.sendKeys("Abir");
-        signUpPage.lastNameField.sendKeys("Mahato");
-        signUpPage.companyField.sendKeys("TFC");
-        signUpPage.addressField.sendKeys("Kolkata");
-        signUpPage.addressField.sendKeys("Kolkata");
-        selectByValueText(signUpPage.countryChoice, "India");
+        signUpPage.firstNameField.sendKeys(globalProperties.getProperty("signupFirstName"));
+        signUpPage.lastNameField.sendKeys(globalProperties.getProperty("signupLastName"));
+        signUpPage.companyField.sendKeys(globalProperties.getProperty("signupCompanyName"));
+        signUpPage.addressField.sendKeys(globalProperties.getProperty("signupAddress"));
+        selectByValueText(signUpPage.countryChoice, globalProperties.getProperty("signupCountry"));
         scrollTillelement(signUpPage.stateField);
-        signUpPage.stateField.sendKeys("Kolkata");
-        signUpPage.cityField.sendKeys("Kokata");
-        signUpPage.zipcodeField.sendKeys("204384");
-        signUpPage.mobileNumberField.sendKeys("7395739535");
+        signUpPage.stateField.sendKeys(globalProperties.getProperty("signupState"));
+        signUpPage.cityField.sendKeys(globalProperties.getProperty("signupCity"));
+        signUpPage.zipcodeField.sendKeys(globalProperties.getProperty("signupZipCode"));
+        signUpPage.mobileNumberField.sendKeys(globalProperties.getProperty("signupPhone"));
         signUpPage.createAccoutButton.click();
     }
 
@@ -44,11 +45,9 @@ public class Login_Signup extends BaseMethod {
         System.out.println(signUpPage.accountCreatesuccesmsg.getText());
         signUpPage.continueButton.click();
         waitTillElementVisible(signUpPage.loggedInASText);
-        String expectedTitle = "Automation Exercise";
         String actualTitle = driver.getTitle();
-        Assert.assertEquals(actualTitle, expectedTitle);
-        String user_name = "Abir";
-        Assert.assertEquals(signUpPage.loggedInASText.getText(), user_name);
+        Assert.assertEquals(actualTitle, globalProperties.getProperty("expectedHomeTitle"));
+        Assert.assertEquals(signUpPage.loggedInASText.getText(), globalProperties.getProperty("signupName"));
     }
 
     public void deleteAccount(){
@@ -56,5 +55,15 @@ public class Login_Signup extends BaseMethod {
         waitTillElementVisible(signUpPage.accountDeletedmsg);
         System.out.println(signUpPage.accountDeletedmsg.getText());
         signUpPage.continueButton.click();
+    }
+
+    public void errorMsgIncorrectLogin(){
+        waitTillElementVisible(signUpPage.loginFormHeading);
+        signUpPage.emailFieldLogin.sendKeys(globalProperties.getProperty("incorrectEmail"));
+        signUpPage.inputPassword.sendKeys(globalProperties.getProperty("incorrectPassword"));
+        signUpPage.loginButton.click();
+        waitTillElementVisible(signUpPage.incorrectWarningMsg);
+        Assert.assertEquals(signUpPage.incorrectWarningMsg.getText(), globalProperties.getProperty("expectedInvalidaccountErrormsg"));
+
     }
 }

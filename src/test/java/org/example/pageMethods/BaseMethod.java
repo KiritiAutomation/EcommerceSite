@@ -26,13 +26,16 @@ public class BaseMethod extends BaseObject {
 
     public WebDriverWait wait;
     public Properties scriptConfigs = new Properties();
+    public Properties globalProperties = new Properties();
     public WebDriver driver;
     public JavascriptExecutor js;
+
 
     public BaseMethod(){
         this.driver = DriverFactory.getDriver();
         try{
             this.scriptConfigs.load(Files.newInputStream(Paths.get(System.getProperty("user.dir") + "//src//test//java//org//example//resources//scriptConfig.properties")));
+            this.globalProperties.load(Files.newInputStream(Paths.get(System.getProperty("user.dir") + "//src//test//java//org//example//resources//Global.properties")));
         }
         catch (Exception e){
             e.printStackTrace();

@@ -26,6 +26,7 @@ public class DriverFactory {
     public static void quitDriver(){
         if(driver.get()!=null){
             driver.get().quit();
+            driver.remove();
         }
     }
 
