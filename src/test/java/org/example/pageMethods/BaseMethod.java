@@ -1,8 +1,11 @@
 package org.example.pageMethods;
 
+import com.aventstack.extentreports.Status;
+import org.apache.logging.log4j.Level;
 import org.example.pageObjects.BaseObject;
 import org.example.testCases.BaseTest;
 import org.example.utils.DriverFactory;
+import org.example.utils.Reporter;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -12,6 +15,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -45,9 +49,106 @@ public class BaseMethod extends BaseObject {
         this.js = (JavascriptExecutor) driver;
     }
 
+    protected void logInfoToHtml(String msg){
+        Reporter.reportLogger.get().log(Status.INFO, msg);
+    }
+
+    protected void logPassToHtml(String msg){
+        Reporter.reportLogger.get().log(Status.PASS, msg);
+    }
+
+    protected void logFailToHtml(String msg){
+        Reporter.reportLogger.get().log(Status.FAIL, msg);
+    }
+
+    protected void logToConsole(String msg){
+        Reporter.consoleLogger.log(Level.INFO, msg);
+    }
+
+
+    protected void click(WebElement element, String msg){
+        try {
+            waitTillElementVisible(element);
+            element.click();
+            logInfoToHtml(msg);
+            logToConsole(msg);
+        }
+        catch (Exception e){
+            logFailToHtml("Error while performing "+msg);
+            logToConsole("Error while performing "+msg);
+        }
+
+    }
+
+    protected void assertIfVisible(WebElement element, String msg){
+        try {
+            waitTillElementVisible(element);
+            element.isDisplayed();
+            logPassToHtml(msg);
+            logToConsole(msg);
+        }
+        catch (Exception e){
+            logFailToHtml("Error while "+msg);
+            logToConsole("Error while "+msg);
+        }
+    }
+
+    protected void sendKeys(WebElement element, String value, String msg){
+        try {
+            waitTillElementVisible(element);
+            element.sendKeys(value);
+            logInfoToHtml(msg);
+            logToConsole(msg);
+        }
+        catch (Exception e){
+            logFailToHtml("Error while "+msg);
+            logToConsole("Error while "+msg);
+        }
+    }
+
+    protected void assertAttribute(String actual, String expected){
+        try {
+            Assert.assertEquals(actual, expected);
+            logPassToHtml("Expected value= " + expected + ", Actual value= " + actual);
+            logToConsole("Expected value= " + expected + ", Actual value= " + actual);
+        }
+        catch (Exception e){
+            logFailToHtml("Expected value= " + expected + ", Actual value= " + actual);
+            logToConsole("Expected value= " + expected + ", Actual value= " + actual);
+            Assert.fail();
+        }
+    }
+
+    protected String getText(WebElement element){
+        try {
+            waitTillElementVisible(element);
+            String value = element.getText();
+            logInfoToHtml(value);
+            logToConsole(value);
+            return value;
+        }
+        catch (Exception e){
+            logFailToHtml("Error while fetching the text");
+            logToConsole("Error while fetching the text");
+        }
+        return null;
+    }
+
+
+    protected String getTitle(){
+        String value = driver.getTitle();
+        logInfoToHtml("Site title is "+value);
+        logToConsole("Site title is "+value);
+        return value;
+    }
+
+
+
 
     protected void openUrl(){
         driver.get("https://www.automationexercise.com/");
+        logInfoToHtml("Site is opened");
+        logToConsole("Site is opened");
     }
 
     protected void waitTillElementVisible(WebElement webElement){
@@ -62,6 +163,9 @@ public class BaseMethod extends BaseObject {
     protected void selectByValueText(WebElement element, String value){
         Select select = new Select(element);
         select.selectByValue(value);
+        logInfoToHtml("Selected value " +value);
+        logToConsole("Selected value " +value);
+
     }
 
 }

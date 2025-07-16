@@ -32,13 +32,13 @@ public class DriverFactory {
 
     protected static void initilizeDriver(){
         Properties prop = new Properties();
-        try {
-            FileInputStream fis = new FileInputStream(System.getProperty("user.dir") + "//src//test//java//org//example//resources//browser.properties");
-            prop.load(fis);
-        }
-        catch (Exception e){
-            e.printStackTrace();
-        }
+            try {
+                FileInputStream fis = new FileInputStream(System.getProperty("user.dir") + "//src//test//java//org//example//resources//browser.properties");
+                prop.load(fis);
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
 
         String browserName = System.getProperty("browser") != null ? System.getProperty("browser") : prop.getProperty("browser");
 

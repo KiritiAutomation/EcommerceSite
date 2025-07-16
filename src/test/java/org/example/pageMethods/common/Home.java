@@ -13,13 +13,12 @@ public class Home extends BaseMethod {
 
     public void goToHomepage(){
         openUrl();
-        String actualTitle = driver.getTitle();
-        Assert.assertEquals(actualTitle, globalProperties.getProperty("expectedHomeTitle"));
+        assertAttribute(getTitle(), globalProperties.getProperty("expectedHomeTitle"));
     }
 
     public void goToSignupLogin(){
 
-        homePage.signupLoginLink.click();
+        click(homePage.signupLoginLink, "Signup/Login hyperlink clicked");
     }
 
 
