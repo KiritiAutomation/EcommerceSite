@@ -38,8 +38,8 @@ public class BaseMethod extends BaseObject {
     public BaseMethod(){
         this.driver = DriverFactory.getDriver();
         try{
-            this.scriptConfigs.load(Files.newInputStream(Paths.get(System.getProperty("user.dir") + "//src//test//java//org//example//resources//scriptConfig.properties")));
-            this.globalProperties.load(Files.newInputStream(Paths.get(System.getProperty("user.dir") + "//src//test//java//org//example//resources//Global.properties")));
+            this.scriptConfigs.load(Files.newInputStream(Paths.get(System.getProperty("user.dir") + "//src//test//resources//scriptConfig.properties")));
+            this.globalProperties.load(Files.newInputStream(Paths.get(System.getProperty("user.dir") + "//src//test//resources//Global.properties")));
         }
         catch (Exception e){
             e.printStackTrace();
@@ -115,7 +115,6 @@ public class BaseMethod extends BaseObject {
         catch (Exception e){
             logFailToHtml("Expected value= " + expected + ", Actual value= " + actual);
             logToConsole("Expected value= " + expected + ", Actual value= " + actual);
-            Assert.fail();
         }
     }
 

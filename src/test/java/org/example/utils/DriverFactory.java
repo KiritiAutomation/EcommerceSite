@@ -33,7 +33,7 @@ public class DriverFactory {
     protected static void initilizeDriver(){
         Properties prop = new Properties();
             try {
-                FileInputStream fis = new FileInputStream(System.getProperty("user.dir") + "//src//test//java//org//example//resources//browser.properties");
+                FileInputStream fis = new FileInputStream(System.getProperty("user.dir") + "//src//test//resources//browser.properties");
                 prop.load(fis);
             }
             catch (Exception e){
