@@ -101,4 +101,9 @@ public class SignUpPage extends BaseObject {
 
     @FindBy(xpath = "//input[@data-qa='login-password']/following-sibling::p")
     public WebElement incorrectWarningMsg;
+
+    @FindBy(xpath = "//input[@data-qa='signup-email']/following-sibling::p")
+    public WebElement incorrectWarningMsgSignUp;
+
+
 }

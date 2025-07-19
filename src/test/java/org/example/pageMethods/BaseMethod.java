@@ -6,6 +6,7 @@ import org.example.pageObjects.BaseObject;
 import org.example.testCases.BaseTest;
 import org.example.utils.DriverFactory;
 import org.example.utils.Reporter;
+import org.example.utils.Settings;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -30,7 +31,7 @@ public class BaseMethod extends BaseObject {
 
     public WebDriverWait wait;
     public Properties scriptConfigs = new Properties();
-    public Properties globalProperties = new Properties();
+    public Properties globalProperties = Settings.getInstanceGlobal();
     public WebDriver driver;
     public JavascriptExecutor js;
 
@@ -39,7 +40,6 @@ public class BaseMethod extends BaseObject {
         this.driver = DriverFactory.getDriver();
         try{
             this.scriptConfigs.load(Files.newInputStream(Paths.get(System.getProperty("user.dir") + "//src//test//resources//scriptConfig.properties")));
-            this.globalProperties.load(Files.newInputStream(Paths.get(System.getProperty("user.dir") + "//src//test//resources//Global.properties")));
         }
         catch (Exception e){
             e.printStackTrace();

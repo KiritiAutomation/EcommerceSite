@@ -9,9 +9,10 @@ public class SignUpLogInTest extends BaseTest {
     public void validateRegistrationAndDeletion(){
         home.get().goToHomepage();
         home.get().goToSignupLogin();
-        loginSignup.get().fillDetailsSignup();
+        loginSignup.get().signupUser("signupName", "signupEmail");
         loginSignup.get().fillAccountInformationAndRegister();
         loginSignup.get().verifyAccountcreated();
+        loginSignup.get().loggedInAsShowing("signupName");
         loginSignup.get().deleteAccount();
     }
 
@@ -19,9 +20,21 @@ public class SignUpLogInTest extends BaseTest {
     public void validateIncorrectLogIn(){
         home.get().goToHomepage();
         home.get().goToSignupLogin();
-        loginSignup.get().errorMsgIncorrectLogin();
+        loginSignup.get().userLogin("incorrectEmail", "incorrectPassword");
+        loginSignup.get().errorMsgIncorrectSignIn();
 
     }
+
+    @Test(description = "Register user with existing email")
+    public void validateRegisteruserWithExistingEmail(){
+        home.get().goToHomepage();
+        home.get().goToSignupLogin();
+        loginSignup.get().signupUser("validName", "existingEmail");
+        loginSignup.get().errorMsgExistingEmail();
+
+
+    }
+
 
 
 }

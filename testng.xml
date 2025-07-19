@@ -11,6 +11,13 @@
                 <methods>
                     <include name="validateRegistrationAndDeletion"/>
                     <include name="validateIncorrectLogIn"/>
+                    <include name="validateRegisteruserWithExistingEmail"/>
+                </methods>
+            </class>
+
+            <class name="org.example.testCases.tests.PLPPageTest">
+                <methods>
+                    <include name="verifyProductListPage"/>
                 </methods>
             </class>
         </classes>

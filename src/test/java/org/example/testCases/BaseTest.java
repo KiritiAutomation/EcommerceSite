@@ -5,9 +5,11 @@ import com.aventstack.extentreports.Status;
 import org.example.pageMethods.BaseMethod;
 import org.example.pageMethods.common.Home;
 import org.example.pageMethods.common.Login_Signup;
+import org.example.pageMethods.common.PLP;
 import org.example.pageObjects.common.HomePage;
 import org.example.utils.DriverFactory;
 import org.example.utils.Reporter;
+import org.example.utils.Settings;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -26,6 +28,8 @@ public class BaseTest {
 
     protected ThreadLocal<Home> home = new ThreadLocal<>();
     protected ThreadLocal<Login_Signup> loginSignup = new ThreadLocal<>();
+    protected ThreadLocal<PLP> plp = new ThreadLocal<>();
+
 
     @BeforeMethod(alwaysRun = true)
     public void setUp(Method currentMethod) throws IOException {
@@ -33,6 +37,7 @@ public class BaseTest {
         DriverFactory.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         home.set(new Home());
         loginSignup.set(new Login_Signup());
+        plp.set(new PLP());
     }
 
     @AfterMethod(alwaysRun = true)

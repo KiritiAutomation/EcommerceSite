@@ -21,6 +21,10 @@ public class Home extends BaseMethod {
         click(homePage.signupLoginLink, "Signup/Login hyperlink clicked");
     }
 
+    public void goToProducts(){
+        click(homePage.productsLink, "Product hyperlink is clicked");
+    }
+
 
 
 

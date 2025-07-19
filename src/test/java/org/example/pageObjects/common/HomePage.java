@@ -11,4 +11,7 @@ public class HomePage extends BaseObject {
     @FindBy(partialLinkText = "Signup / Login")
     public WebElement signupLoginLink;
 
+    @FindBy(partialLinkText = "Products")
+    public WebElement productsLink;
+
 }

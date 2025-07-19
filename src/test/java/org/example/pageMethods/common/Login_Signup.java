@@ -8,12 +8,11 @@ public class Login_Signup extends BaseMethod {
 
     SignUpPage signUpPage = new SignUpPage();
 
-    public void fillDetailsSignup(){
+    public void signupUser(String name, String email){
         assertIfVisible(signUpPage.signUpHeading, "Sign up heading is displaying");
-        sendKeys(signUpPage.nameField, globalProperties.getProperty("signupName"), "Name Entered");
-        sendKeys(signUpPage.emailField, globalProperties.getProperty("signupEmail"), "Email Entered");
+        sendKeys(signUpPage.nameField, globalProperties.getProperty(name), "Name Entered");
+        sendKeys(signUpPage.emailField, globalProperties.getProperty(email), "Email Entered");
         click(signUpPage.signUpButton, "Signup button clicked");
-
     }
 
     public void fillAccountInformationAndRegister(){
@@ -35,8 +34,8 @@ public class Login_Signup extends BaseMethod {
         selectByValueText(signUpPage.countryChoice, globalProperties.getProperty("signupCountry"));
         scrollTillelement(signUpPage.stateField);
         sendKeys(signUpPage.stateField, globalProperties.getProperty("signupState"), "state is entered");
-        sendKeys(signUpPage.cityField, globalProperties.getProperty("signupCity"), "City is entered");
-        sendKeys(signUpPage.zipcodeField, globalProperties.getProperty("signupZipCode"), "Zip code is entered");
+        sendKeys(signUpPage.cityField,  globalProperties.getProperty("signupCity"), "City is entered");
+        sendKeys(signUpPage.zipcodeField,  globalProperties.getProperty("signupZipCode"), "Zip code is entered");
         sendKeys(signUpPage.mobileNumberField, globalProperties.getProperty("signupPhone"), "Phone number is entered");
         click(signUpPage.createAccoutButton, "Create Account button is Clicked");
     }
@@ -44,25 +43,35 @@ public class Login_Signup extends BaseMethod {
     public void verifyAccountcreated(){
         assertIfVisible(signUpPage.accountCreatesuccesmsg, "Account Created");
         click(signUpPage.continueButton, "Continue button clicked");
-        assertIfVisible(signUpPage.loggedInASText, "Logged in UserName is visible");
-        assertAttribute(getTitle(), globalProperties.getProperty("expectedHomeTitle"));
-        assertAttribute(getText(signUpPage.loggedInASText), globalProperties.getProperty("signupName"));
     }
 
     public void deleteAccount(){
-        signUpPage.deleteAccoutLink.click();
-        waitTillElementVisible(signUpPage.accountDeletedmsg);
-        System.out.println(signUpPage.accountDeletedmsg.getText());
-        signUpPage.continueButton.click();
+        click(signUpPage.deleteAccoutLink, "Delete Account link is clicked");
+        assertIfVisible(signUpPage.accountDeletedmsg, "Account deleted msg is visible");
+        click(signUpPage.continueButton, "Continue button is clicked");
     }
 
-    public void errorMsgIncorrectLogin(){
-        waitTillElementVisible(signUpPage.loginFormHeading);
-        signUpPage.emailFieldLogin.sendKeys(globalProperties.getProperty("incorrectEmail"));
-        signUpPage.inputPassword.sendKeys(globalProperties.getProperty("incorrectPassword"));
-        signUpPage.loginButton.click();
-        waitTillElementVisible(signUpPage.incorrectWarningMsg);
-        Assert.assertEquals(signUpPage.incorrectWarningMsg.getText(), globalProperties.getProperty("expectedInvalidaccountErrormsg"));
-
+    public void userLogin(String email, String password){
+        assertIfVisible(signUpPage.loginFormHeading, "SignIn form heading is displaying");
+        sendKeys(signUpPage.emailFieldLogin, globalProperties.getProperty(email), "Email is entered");
+        sendKeys(signUpPage.inputPassword, globalProperties.getProperty(password), "Password is entered");
+        click(signUpPage.loginButton, "Log in Button is clicked");
     }
+
+    public void loggedInAsShowing(String name){
+        assertIfVisible(signUpPage.loggedInASText, "Logged in UserName is visible");
+        assertAttribute(getTitle(), globalProperties.getProperty("expectedHomeTitle"));
+        assertAttribute(getText(signUpPage.loggedInASText), globalProperties.getProperty(name));
+    }
+
+    public void errorMsgExistingEmail(){
+        assertAttribute(signUpPage.incorrectWarningMsgSignUp.getText(), globalProperties.getProperty("expectedSignUperrormsg"));
+    }
+
+    public void errorMsgIncorrectSignIn(){
+        assertIfVisible(signUpPage.incorrectWarningMsg, "Incorrect error message is displaying");
+        assertAttribute(signUpPage.incorrectWarningMsg.getText(), globalProperties.getProperty("expectedInvalidaccountErrormsg"));
+    }
+
+
 }
