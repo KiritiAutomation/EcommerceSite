@@ -1,0 +1,14 @@
+{
+  "addProductsAndVerifyInCart" : {
+    "Product Names" : [ "Blue Top", "Men Tshirt" ],
+    "Product Prices" : [ "500", "400" ]
+  },
+  "validateProductQuantityInCart" : {
+    "Product Name" : [ "Sleeveless Dress", "Sleeveless  Dress" ],
+    "Product Quantity" : [ "4" ]
+  },
+  "placeOrderRegisterwhileCheckout" : {
+    "Product Names" : [ "Stylish Dress", "Winter Top" ],
+    "Product Prices" : [ "1500", "600" ]
+  }
+}

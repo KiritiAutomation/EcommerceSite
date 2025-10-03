@@ -4,8 +4,8 @@
     <listeners>
         <listener class-name="org.example.testCases.TestNGListener"/>
     </listeners>
-    <test verbose="2" preserve-order="true"
-          name="C:/Practice/EcommerceSite/src/test/java/org/example/testCases/common/HomepageTest.java">
+    <test verbose="2"  preserve-order="true" parallel="methods" thread-count="4"
+          name="Ecommerce site test">
         <classes>
             <class name="org.example.testCases.tests.SignUpLogInTest">
                 <methods>
@@ -18,6 +18,26 @@
             <class name="org.example.testCases.tests.PLPPageTest">
                 <methods>
                     <include name="verifyProductListPage"/>
+                    <include name="verifySearchProduct"/>
+                </methods>
+            </class>
+
+            <class name="org.example.testCases.tests.HomepageTest">
+                <methods>
+                    <include name="verifySubscription"/>
+                </methods>
+            </class>
+
+            <class name="org.example.testCases.tests.CartPageTest">
+                <methods>
+                    <include name="addProductsAndVerifyInCart"/>
+                    <include name="validateProductQuantityInCart"/>
+                </methods>
+            </class>
+
+            <class name="org.example.testCases.tests.PlaceOrderTest">
+                <methods>
+                    <include name="placeOrderRegisterwhileCheckout"/>
                 </methods>
             </class>
         </classes>

@@ -11,6 +11,10 @@
             <AppenderRef ref="console" />
         </Logger>
 
+<!--        <Logger name="org.testng.internal.Utils" level="error" additivity="false">-->
+<!--                <AppenderRef ref="console"/>-->
+<!--        </Logger>-->
+
         <Root level="Info">
             <AppenderRef ref="console" />
         </Root>

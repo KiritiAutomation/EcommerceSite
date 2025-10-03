@@ -3,7 +3,7 @@ package org.example.utils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
-import org.testng.annotations.BeforeMethod;
+
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -13,6 +13,7 @@ import java.util.Properties;
 public class DriverFactory {
 
     private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
+
 
 
     public static WebDriver getDriver(){
@@ -30,7 +31,7 @@ public class DriverFactory {
         }
     }
 
-    protected static void initilizeDriver(){
+    private static void initilizeDriver(){
         Properties prop = new Properties();
             try {
                 FileInputStream fis = new FileInputStream(System.getProperty("user.dir") + "//src//test//resources//browser.properties");
@@ -42,11 +43,16 @@ public class DriverFactory {
 
         String browserName = System.getProperty("browser") != null ? System.getProperty("browser") : prop.getProperty("browser");
 
+
+
+
         if (browserName.equalsIgnoreCase("chrome")) {
             driver.set(new ChromeDriver());
         } else if (browserName.equalsIgnoreCase("Edge")) {
             driver.set(new EdgeDriver());
         }
+
+        driver.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
     }
 }

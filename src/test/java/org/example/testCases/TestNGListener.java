@@ -2,16 +2,12 @@ package org.example.testCases;
 
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.example.utils.Reporter;
 import org.example.utils.Settings;
-import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
-import java.io.IOException;
 import java.util.Properties;
 
 public class TestNGListener implements ITestListener {
@@ -24,7 +20,6 @@ public class TestNGListener implements ITestListener {
         ExtentTest extentTest = Reporter.extentReport.createTest(result.getMethod().getDescription());
         Reporter.reportLogger.set(extentTest);
         Reporter.reportLogger.get().log(Status.INFO, "Current Thread Name "+Thread.currentThread().getName());
-        globalProperties = Settings.getInstanceGlobal();
 
     }
 
@@ -49,5 +44,6 @@ public class TestNGListener implements ITestListener {
 //        ITestListener.super.onFinish(context);
         Reporter.extentReport.flush();
         }
+
 
 }
