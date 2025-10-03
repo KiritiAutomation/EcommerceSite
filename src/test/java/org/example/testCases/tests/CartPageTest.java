@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 public class CartPageTest extends BaseTest {
 
-    @Test(description = "Add products in cart and verify the products")
+    @Test(description = "Add products in cart and verify the products", groups = {"Regression", "Smoke", "Sanity"})
     public void addProductsAndVerifyInCart() throws InterruptedException {
         home.get().goToHomepage();
         assertAttribute(home.get().getTitle(), Settings.getGlobalProperty("expectedHomeTitle"));
@@ -27,7 +27,7 @@ public class CartPageTest extends BaseTest {
 
     }
 
-    @Test(description = "Verify Product quantity in Cart")
+    @Test(description = "Verify Product quantity in Cart", groups = {"Regression", "Smoke", "Sanity"})
     public void validateProductQuantityInCart(){
         home.get().goToHomepage();
         assertAttribute(home.get().getTitle(), Settings.getGlobalProperty("expectedHomeTitle"));

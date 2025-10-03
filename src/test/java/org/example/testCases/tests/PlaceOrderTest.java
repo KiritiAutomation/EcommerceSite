@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 public class PlaceOrderTest extends BaseTest {
 
 
-    @Test(description = "Place Order: Register while Checkout")
+    @Test(description = "Place Order: Register while Checkout", groups = {"Regression", "Smoke"})
     public void placeOrderRegisterwhileCheckout() throws InterruptedException {
 
         home.get().goToHomepage();

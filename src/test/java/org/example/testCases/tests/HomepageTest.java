@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 public class HomepageTest extends BaseTest {
 
-    @Test(description = "Verify Subscription in home page")
+    @Test(description = "Verify Subscription in home page", groups = {"Regression", "Smoke"})
     public void verifySubscription() throws InterruptedException {
         home.get().goToHomepage();
         assertAttribute(home.get().getTitle(), Settings.getGlobalProperty("expectedHomeTitle"));

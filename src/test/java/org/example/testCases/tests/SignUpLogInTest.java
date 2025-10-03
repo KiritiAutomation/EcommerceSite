@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 
 public class SignUpLogInTest extends BaseTest {
 
-    @Test(description = "Register User and delete account")
+    @Test(description = "Register User and delete account", groups = {"Regression", "Smoke"})
     public void validateRegistrationAndDeletion(){
         home.get().goToHomepage();
         assertAttribute(home.get().getTitle(), Settings.getGlobalProperty("expectedHomeTitle"));
@@ -30,7 +30,7 @@ public class SignUpLogInTest extends BaseTest {
         softAssert.assertAll();
     }
 
-    @Test(description = "Login User with incorrect email and password")
+    @Test(description = "Login User with incorrect email and password",  groups = {"Regression", "Smoke"})
     public void validateIncorrectLogIn(){
         home.get().goToHomepage();
         assertAttribute(home.get().getTitle(), Settings.getGlobalProperty("expectedHomeTitle"));
@@ -42,7 +42,7 @@ public class SignUpLogInTest extends BaseTest {
 
     }
 
-    @Test(description = "Register user with existing email")
+    @Test(description = "Register user with existing email", groups = {"Regression", "Smoke"})
     public void validateRegisteruserWithExistingEmail(){
         home.get().goToHomepage();
         assertAttribute(home.get().getTitle(), Settings.getGlobalProperty("expectedHomeTitle"));

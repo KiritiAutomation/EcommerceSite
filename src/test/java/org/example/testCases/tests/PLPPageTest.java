@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 public class PLPPageTest extends BaseTest {
 
-    @Test(description = "Verify All Products and product detail page")
+    @Test(description = "Verify All Products and product detail page", groups = {"Regression", "Sanity"})
     public void verifyProductListPage(){
         home.get().goToHomepage();
         assertAttribute(home.get().getTitle(), Settings.getGlobalProperty("expectedHomeTitle"));
@@ -25,7 +25,7 @@ public class PLPPageTest extends BaseTest {
         softAssert.assertAll();
     }
 
-    @Test(description = "Verify Search Product")
+    @Test(description = "Verify Search Product", groups = {"Regression", "Sanity"})
     public void verifySearchProduct(){
         home.get().goToHomepage();
         assertAttribute(home.get().getTitle(), Settings.getGlobalProperty("expectedHomeTitle"));
