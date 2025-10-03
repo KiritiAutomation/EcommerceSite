@@ -80,7 +80,6 @@
     <profile>
       <id>Regression</id>
   <build>
-    <pluginManagement>
       <plugins>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -93,14 +92,12 @@
           </configuration>
         </plugin>
       </plugins>
-    </pluginManagement>
   </build>
     </profile>
 
     <profile>
       <id>SmokeTest</id>
       <build>
-        <pluginManagement>
           <plugins>
             <plugin>
               <groupId>org.apache.maven.plugins</groupId>
@@ -113,14 +110,12 @@
               </configuration>
             </plugin>
           </plugins>
-        </pluginManagement>
       </build>
     </profile>
 
     <profile>
       <id>SanityTest</id>
       <build>
-        <pluginManagement>
           <plugins>
             <plugin>
               <groupId>org.apache.maven.plugins</groupId>
@@ -133,7 +128,6 @@
               </configuration>
             </plugin>
           </plugins>
-        </pluginManagement>
       </build>
     </profile>
 
