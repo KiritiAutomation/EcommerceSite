@@ -46,6 +46,7 @@ public class PaymentPage extends BasePage {
     }
 
     public void clickPlaceOrder(){
+        scrollTillelement(payButton);
         click(payButton, "Place order is clicked");
     }
 
