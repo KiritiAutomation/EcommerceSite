@@ -1,15 +1,17 @@
-# Ecommerce Automation Framework
+# 🛒 Ecommerce Automation Framework (Selenium + Java)
 
 ## Overview
 
 The **Ecommerce Automation Framework** is a **Hybrid Selenium Automation Framework** built using **Java**. 
 It combines data-driven, keyword-driven, and modular design approaches to achieve a scalable and maintainable 
-automation testing solution for e-commerce web applications.
+automation testing solution for [Automation Exercise] (https://automationexercise.com/) demo e-commerce website.  
+It supports scalable test execution, modular design, and detailed reporting for end-to-end test coverage.
 
 This framework enables automation of workflows such as:
-- Product browsing and search
-- Adding items to cart and checkout
 - User registration and login
+- Product search and filtering
+- Adding/removing products from the cart
+- Checkout and order confirmation
 - Order placement and verification
 
 The goal is to simplify test case management, improve reusability, and provide detailed reporting for quality assurance.
@@ -146,5 +148,4 @@ mvn clean test -PRegression -Dbrowser=chrome
 5. Open a Pull Request.
 
 ---
-
 
