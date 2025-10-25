@@ -1,7 +1,7 @@
 {
   "addProductsAndVerifyInCart" : {
-    "Product Names" : [ "Blue Top", "Men Tshirt" ],
-    "Product Prices" : [ "500", "400" ]
+    "Product Names" : [ "Blue Top", "Stylish Dress" ],
+    "Product Prices" : [ "500", "1500" ]
   },
   "validateProductQuantityInCart" : {
     "Product Name" : [ "Sleeveless Dress", "Sleeveless  Dress" ],

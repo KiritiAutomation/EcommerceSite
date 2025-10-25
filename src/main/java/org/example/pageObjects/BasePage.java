@@ -121,6 +121,11 @@ public class BasePage {
         Thread.sleep(1000);
     }
 
+    protected void actionClick(WebElement webElement) throws InterruptedException {
+        actions.click(webElement).perform();
+        Thread.sleep(1000);
+    }
+
     protected String getCallingMethodName(){
         return Thread.currentThread().getStackTrace()[3].getMethodName();
     }

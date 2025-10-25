@@ -36,6 +36,9 @@ public class PLPPage extends BasePage {
     @FindBy(partialLinkText = "Cart")
     private WebElement cartButton;
 
+    @FindBy(css = "grippy-host")
+    private WebElement hideGoogleAd;
+
 
 
 
@@ -80,7 +83,7 @@ public class PLPPage extends BasePage {
         WebElement addToCartCTA = product.findElements(By.tagName("a")).get(0);
         WebElement addToCartCTAsecond = product.findElements(By.tagName("a")).get(1);
         actionMoveToElement(addToCartCTA);
-        click(addToCartCTAsecond, "Add to cart is clicked");
+        actionClick(addToCartCTAsecond);
         String price = product.findElements(By.tagName("h2")).get(0).getText().split(" ")[1].trim();
         String productName = product.findElements(By.tagName("p")).get(0).getText();
         String caller = getCallingMethodName();

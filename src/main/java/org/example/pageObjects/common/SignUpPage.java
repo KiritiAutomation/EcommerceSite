@@ -111,7 +111,14 @@ public class SignUpPage extends BasePage {
 
 
 
-    public void signupUser(String name, String email){
+    public void signupUser(String name){
+        sendKeys(nameField, Settings.getGlobalProperty(name), "Name Entered");
+        String email = "user"+ System.currentTimeMillis() + "@testmail.com";
+        sendKeys(emailField, email, "Email Entered");
+        click(signUpButton, "Signup button clicked");
+    }
+
+    public void signupUserWithExisting(String name, String email){
         sendKeys(nameField, Settings.getGlobalProperty(name), "Name Entered");
         sendKeys(emailField, Settings.getGlobalProperty(email), "Email Entered");
         click(signUpButton, "Signup button clicked");

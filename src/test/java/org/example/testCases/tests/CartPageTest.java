@@ -18,7 +18,7 @@ public class CartPageTest extends BaseTest {
         assertIfVisible(plp.get().getAllProductsHeading(), "All products heading");
         assertTrueBoolean(plp.get().areProductsAvailable(), "Products are available");
         plp.get().addToCartProductNumber(1);
-        plp.get().addToCartProductNumber(2);
+        plp.get().addToCartProductNumber(4);
         plp.get().goToCart();
         assertIfVisible(cart.get().getShoppingCart(), "Cart page");
         assertAttributeList(cart.get().getActualProductNames(), cart.get().getExpectedProductNames());

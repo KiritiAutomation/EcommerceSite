@@ -1,5 +1,6 @@
 package org.example.testCases;
 
+import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -14,6 +15,7 @@ import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import java.io.File;
@@ -42,6 +44,11 @@ public class BaseTest {
         // Initialize WebDriver
         initializeWebDriver();
 
+        // Setting Extent Report
+        ExtentTest extentTest = Reporter.extentReport.createTest(currentMethod.getAnnotation(Test.class).description());
+        Reporter.reportLogger.set(extentTest);
+        Reporter.reportLogger.get().log(Status.INFO, "Current Thread Name "+Thread.currentThread().getName());
+
         // Initialize page objects
         initializePageObjects();
 
@@ -55,6 +62,8 @@ public class BaseTest {
         // Cleanup page objects
         cleanupPageObjects();
 
+        // Saving extent Report
+        Reporter.extentReport.flush();
 
         // Quit driver
         DriverFactory.quitDriver();
@@ -92,6 +101,10 @@ public class BaseTest {
             loginSignup.remove();
             plp.remove();
             pdp.remove();
+            cart.remove();
+            checkout.remove();
+            payment.remove();
+
         } catch (Exception e) {
             System.err.println("Error cleaning up page objects: " + e.getMessage());
         }

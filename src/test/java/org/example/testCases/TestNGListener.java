@@ -17,9 +17,7 @@ public class TestNGListener implements ITestListener {
     @Override
     public void onTestStart(ITestResult result) {
 
-        ExtentTest extentTest = Reporter.extentReport.createTest(result.getMethod().getDescription());
-        Reporter.reportLogger.set(extentTest);
-        Reporter.reportLogger.get().log(Status.INFO, "Current Thread Name "+Thread.currentThread().getName());
+
 
     }
 
@@ -42,7 +40,7 @@ public class TestNGListener implements ITestListener {
     @Override
     public void onFinish(ITestContext context) {
 //        ITestListener.super.onFinish(context);
-        Reporter.extentReport.flush();
+
         }
 
 

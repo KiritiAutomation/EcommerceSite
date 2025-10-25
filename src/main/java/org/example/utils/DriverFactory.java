@@ -52,7 +52,7 @@ public class DriverFactory {
             driver.set(new EdgeDriver());
         }
 
-        driver.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 
     }
 }

@@ -18,7 +18,7 @@ public class SignUpLogInTest extends BaseTest {
         //Soft Assertion
         softassertAttribute(loginSignup.get().getNamePlaceholderTxt(), Settings.getGlobalProperty("nameFieldPlaceholder"));
         softassertAttribute(loginSignup.get().getEmailPlaceholderTxt(), Settings.getGlobalProperty("emailFieldPlaceholder"));
-        loginSignup.get().signupUser("signupName", "signupEmail");
+        loginSignup.get().signupUser("signupName");
         assertIfVisible(loginSignup.get().getAcccountInfoHeading(), "Account Info heading");
         loginSignup.get().fillAccountInformationAndRegister();
         assertAttribute(loginSignup.get().getAccountCreatedMsg(), Settings.getGlobalProperty("accountCreatedmsg"));
@@ -53,7 +53,7 @@ public class SignUpLogInTest extends BaseTest {
         //Soft Assertion
         softassertAttribute(loginSignup.get().getNamePlaceholderTxt(), Settings.getGlobalProperty("nameFieldPlaceholder"));
         softassertAttribute(loginSignup.get().getEmailPlaceholderTxt(), Settings.getGlobalProperty("emailFieldPlaceholder"));
-        loginSignup.get().signupUser("validName", "existingEmail");
+        loginSignup.get().signupUserWithExisting("validName", "existingEmail");
         assertAttribute(loginSignup.get().geterrorMsgExistingEmail(), Settings.getGlobalProperty("alreadyExistingSignUpMsg"));
         softAssert.assertAll();
 

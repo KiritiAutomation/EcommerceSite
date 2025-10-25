@@ -27,7 +27,7 @@ public class PlaceOrderTest extends BaseTest {
         //Soft Assertion
         softassertAttribute(loginSignup.get().getNamePlaceholderTxt(), Settings.getGlobalProperty("nameFieldPlaceholder"));
         softassertAttribute(loginSignup.get().getEmailPlaceholderTxt(), Settings.getGlobalProperty("emailFieldPlaceholder"));
-        loginSignup.get().signupUser("signupName2", "signupEmail1");
+        loginSignup.get().signupUser("signupName2");
         assertIfVisible(loginSignup.get().getAcccountInfoHeading(), "Account Info heading");
         loginSignup.get().fillAccountInformationAndRegister();
         assertAttribute(loginSignup.get().getAccountCreatedMsg(), Settings.getGlobalProperty("accountCreatedmsg"));
