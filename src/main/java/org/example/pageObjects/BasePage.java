@@ -86,7 +86,7 @@ public class BasePage {
 
 
     protected void openUrl(){
-        driver.get("https://www.automationexercise.com/");
+        driver.get(Settings.getGlobalProperty("siteUrl"));
         Reporter.log(Status.INFO, "Site is opened");
     }
 
