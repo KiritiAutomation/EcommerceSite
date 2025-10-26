@@ -31,6 +31,7 @@ The goal is to simplify test case management, improve reusability, and provide d
 - **Reusable Utilities** for common actions and validations
 - **Jackson Databind** for parsing and managing JSON-based configuration or test data.
 - **TakeScreenShot** on failure taking screenshot and adding it to Extent report.
+- **Jenkins Integration (via UI)** — configured Jenkins jobs through the UI to automate build triggers, execute test suites, and generate Extent Reports for continuous feedback
 
 ---
 
