@@ -47,8 +47,12 @@ The goal is to simplify test case management, improve reusability, and provide d
 
 ## 📊 Reports & Dashboards
 
-Extent Report (All pass)
-<img width="1915" height="914" alt="image" src="https://github.com/user-attachments/assets/c5c5ea20-4f34-404b-85d6-5034d2095f95" />
+In-case of **All Pass:-**
+<img width="1915" height="914" alt="image" src="https://github.com/user-attachments/assets/c5c5ea20-4f34-404b-85d6-5034d2095f95" /> <br>
+
+In-case of **Any Failure:-**
+<img width="1914" height="910" alt="image" src="https://github.com/user-attachments/assets/17342fc6-900c-4b82-8a9e-fd6381ebd2a1" />
+
 
 
 
