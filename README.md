@@ -53,6 +53,10 @@ The goal is to simplify test case management, improve reusability, and provide d
 | **API Extent Report**   | API test execution status            | [API Report](./Reports/APIExtentReport.html) 🔗 |
 | **Screenshots Gallery** | Visual evidence of UI test steps     | [Screenshots](./Reports/Screenshots/) 🔗 |
 
+<img width="1154" height="330" alt="image" src="https://github.com/user-attachments/assets/dd8a49b8-11c4-491e-aa7e-e10ea3fbbb99" />
+
+
+
 ## Project Structure
 
 ```
