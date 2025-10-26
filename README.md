@@ -91,14 +91,6 @@ Ecommerce-Automation/
 
 ---
 
-## Prerequisites
-
-- **Java JDK 11 or later**
-- **Maven 3.6+**
-- **Google Chrome / Firefox / Edge**
-- **TestNG plugin** (for IDE integration)
-
----
 
 ## Setup Instructions
 
@@ -156,15 +148,23 @@ This framework can be integrated into **Jenkins** or any CI/CD tool for automate
 mvn clean test -PRegression -Dbrowser=chrome
 ```
 
+## 🔮 Upcoming Enhancements
+- Unified support for **Web + Mobile automation** (Selenium + Appium)  
+- Integration with **BrowserStack / Docker Grid** for scalable parallel runs  
+
 ---
 
-## Contribution
+🗣️Author
+Kiriti Mahato
+QA Automation Test Engineer
+Passionate about building unified automation solutions with Selenium, Appium and Java.
 
-1. Fork the repository.
-2. Create your feature branch: `git checkout -b feature/my-feature`.
-3. Commit your changes: `git commit -m "Add my feature"`.
-4. Push to the branch: `git push origin feature/my-feature`.
-5. Open a Pull Request.
+
+---
+
+
+🗮 License
+MIT License © 2025 Kiriti Mahato
 
 ---
 
