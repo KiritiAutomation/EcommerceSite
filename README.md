@@ -49,7 +49,7 @@ The goal is to simplify test case management, improve reusability, and provide d
 
 | **Report Type**         | **Description**                     | **URL (Link)** |
 |-------------------------|-------------------------------------|----------------|
-| **UI Extent Report**    | Detailed UI execution summary        | [UI Report](/src/test/ExtentReport/Spark.html) 🔗 |
+| **UI Extent Report**    | Detailed UI execution summary        | [UI Report](./ExtentReport/Spark.html) 🔗 |
 | **API Extent Report**   | API test execution status            | [API Report](./Reports/APIExtentReport.html) 🔗 |
 | **Screenshots Gallery** | Visual evidence of UI test steps     | [Screenshots](./Reports/Screenshots/) 🔗 |
 
