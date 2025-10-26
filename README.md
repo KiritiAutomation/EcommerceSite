@@ -154,10 +154,10 @@ mvn clean test -PRegression -Dbrowser=chrome
 
 ---
 
-🗣️Author
-Kiriti Mahato
-QA Automation Test Engineer
-Passionate about building unified automation solutions with Selenium, Appium and Java.
+🗣️Author <br>
+Kiriti Mahato <br>
+QA Automation Test Engineer <br>
+Passionate about building unified automation solutions with Selenium, Appium and Java. <br>
 
 
 ---
