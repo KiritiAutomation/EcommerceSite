@@ -1,11 +1,11 @@
 # 🛒 Ecommerce Automation Framework (Selenium + Java)
 
-## Overview
+## 📘 Overview
+The **Ecommerce Automation Framework** is a **Hybrid Selenium Automation Framework** built using **Java**, designed to automate workflows for the [Automation Exercise](https://automationexercise.com/) demo e-commerce website.
 
-The **Ecommerce Automation Framework** is a **Hybrid Selenium Automation Framework** built using **Java**. 
-It combines data-driven, keyword-driven, and modular design approaches to achieve a scalable and maintainable 
-automation testing solution for [Automation Exercise] (https://automationexercise.com/) demo e-commerce website.  
-It supports scalable test execution, modular design, and detailed reporting for end-to-end test coverage.
+It combines **Data-driven**, **Keyword-driven**, and **Modular** design patterns to achieve a **scalable**, **maintainable**, and **reusable** testing solution.
+
+---
 
 This framework enables automation of workflows such as:
 - User registration and login
@@ -18,22 +18,40 @@ The goal is to simplify test case management, improve reusability, and provide d
 
 ---
 
-## Features
-
-- **Hybrid Framework Architecture** (Data-driven + Keyword-driven + Modular)
-- **Selenium WebDriver** integration as thread safe for parallel browser execution
-- **TestNG** for test management and parallel execution
-- **Page Object Model (POM)** for maintainable UI interaction
-- **Log4J** for detailed logging 
-- **Extent Reports** for comprehensive test reporting
-- **Maven** for dependency management and build automation
-- **Cross-browser testing** support (Chrome, Edge, Firefox)
-- **Reusable Utilities** for common actions and validations
-- **Jackson Databind** for parsing and managing JSON-based configuration or test data.
-- **TakeScreenShot** on failure taking screenshot and adding it to Extent report.
-- **Jenkins Integration (via UI)** — configured Jenkins jobs through the UI to automate build triggers, execute test suites, and generate Extent Reports for continuous feedback
+## ⚙️ Tech Stack
+- **Language:** Java  
+- **Automation Tools:** Selenium WebDriver 
+- **Test Management:** TestNG  
+- **Build Tool:** Maven  
+- **Logging:** Log4J  
+- **Reporting:** Extent Reports  
+- **Data Handling:** Jackson Databind (JSON)  
+- **CI/CD Integration:** Jenkins (UI-based)  
+- **Version Control:** Git & GitHub  
+- **Cross-browser Testing:** Chrome, Edge, Firefox  
 
 ---
+
+## 🧩 Key Features
+- Hybrid Framework (Data-driven + Keyword-driven + Modular)  
+- Thread-safe WebDriver for parallel execution  
+- Page Object Model (POM) for maintainable UI interaction  
+- Log4J integrated for detailed logging  
+- Extent Reports with screenshots on failure  
+- Maven for dependency management & build automation  
+- Jenkins UI integration for automated test execution & reporting  
+- Reusable utilities for common validations  
+- JSON-based test data management  
+
+---
+
+## 📊 Reports & Dashboards
+
+| **Report Type**         | **Description**                     | **URL (Link)** |
+|-------------------------|-------------------------------------|----------------|
+| **UI Extent Report**    | Detailed UI execution summary        | [UI Report](/src/test/ExtentReport/Spark.html) 🔗 |
+| **API Extent Report**   | API test execution status            | [API Report](./Reports/APIExtentReport.html) 🔗 |
+| **Screenshots Gallery** | Visual evidence of UI test steps     | [Screenshots](./Reports/Screenshots/) 🔗 |
 
 ## Project Structure
 
